@@ -1,10 +1,12 @@
 # 2048
-### New Feature
+### Latest Feature (Aug-2014)
  - Added Kanji Version for big numeral version 貳零肆捌(大) and small numeral version 二〇四八(小).
  - Modified favicon.ico with a Kanji Version.
  - Note: I'm modifying the main.css file directly for a quick solution without regeneration from scss. I know it is bad practice, sorry.
+ - Note: New Play Link. (http://chayoka.github.io/2048-Kanji/)
 
-
+### Summary (May-2014)
+ 
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
 
 Made just for fun. [Play it here!](http://gabrielecirulli.github.io/2048/)
