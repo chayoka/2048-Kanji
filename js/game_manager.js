@@ -5,13 +5,34 @@ function GameManager(size, InputManager, Actuator, StorageManager) {
   this.actuator       = new Actuator;
 
   this.startTiles     = 2;
+  this.numeralType    = 1;
 
+  this.inputManager.on("convertNumeral", this.convertNumeral.bind(this))
   this.inputManager.on("move", this.move.bind(this));
   this.inputManager.on("restart", this.restart.bind(this));
   this.inputManager.on("keepPlaying", this.keepPlaying.bind(this));
 
   this.setup();
 }
+
+// Restart the game
+GameManager.prototype.convertNumeral = function () {
+  var numeralType = this.storageManager.getNumeralType();
+  numeralType = ((numeralType % 2)+1);
+  this.storageManager.setNumeralType(numeralType);
+  this.actuator.numeralType = numeralType;
+  
+  
+  this.renderHeader();
+  this.actuator.updateGrid(this.grid, {
+    score:      this.score,
+    over:       this.over,
+    won:        this.won,
+    bestScore:  this.storageManager.getBestScore(),
+    terminated: this.isGameTerminated(),
+    numeralType: this.storageManager.getNumeralType()
+  });
+};
 
 // Restart the game
 GameManager.prototype.restart = function () {
@@ -31,8 +52,23 @@ GameManager.prototype.isGameTerminated = function () {
   return this.over || (this.won && !this.keepPlaying);
 };
 
+GameManager.prototype.renderHeader = function () {
+  var numeralType = this.storageManager.getNumeralType();
+  var textKanji = "2048";
+  if(numeralType == 1){
+    textKanji = "貳零肆捌(大)";
+  }else if(numeralType == 2){
+    textKanji = "二〇四八(小)"; 
+  }else{
+    textKanji = "2048";
+  }
+  this.actuator.headerContainer.textContent = textKanji;
+};
+
 // Set up the game
 GameManager.prototype.setup = function () {
+  this.renderHeader();
+  
   var previousState = this.storageManager.getGameState();
 
   // Reload the game from a previous game if present
@@ -93,7 +129,8 @@ GameManager.prototype.actuate = function () {
     over:       this.over,
     won:        this.won,
     bestScore:  this.storageManager.getBestScore(),
-    terminated: this.isGameTerminated()
+    terminated: this.isGameTerminated(),
+    numeralType: this.storageManager.getNumeralType()
   });
 
 };

@@ -69,6 +69,7 @@ KeyboardInputManager.prototype.listen = function () {
   });
 
   // Respond to button presses
+  this.bindButtonPress(".lang-button", this.convertNumeral);
   this.bindButtonPress(".retry-button", this.restart);
   this.bindButtonPress(".restart-button", this.restart);
   this.bindButtonPress(".keep-playing-button", this.keepPlaying);
@@ -130,6 +131,11 @@ KeyboardInputManager.prototype.listen = function () {
 KeyboardInputManager.prototype.restart = function (event) {
   event.preventDefault();
   this.emit("restart");
+};
+
+KeyboardInputManager.prototype.convertNumeral = function (event) {
+  event.preventDefault();
+  this.emit("convertNumeral");
 };
 
 KeyboardInputManager.prototype.keepPlaying = function (event) {
