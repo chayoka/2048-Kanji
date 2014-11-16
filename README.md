@@ -1,10 +1,21 @@
-# 2048
+# 2048-Kanji
 ### Latest Feature (Aug-2014)
  - Added Kanji Version for big numeral version 貳零肆捌(大) and small numeral version 二〇四八(小).
  - Modified favicon.ico with a Kanji Version.
  - Note: I'm modifying the main.css file directly for a quick solution without regeneration from scss. I know it is bad practice, sorry.
  - Note: New Play Link. (http://chayoka.github.io/2048-Kanji/)
 
+### Example Screenshot 
+####Kanji for Big Numeral Version 貳零肆捌(大)
+![alt text](https://cloud.githubusercontent.com/assets/9296940/5060977/ef8a75ba-6db6-11e4-8b09-cdf3dd92bc87.png "Kanji for Big Numeral Version")
+
+####Kanji for Small Numeral Version 二〇四八(小)
+![alt text](https://cloud.githubusercontent.com/assets/9296940/5060978/efb4ebf6-6db6-11e4-961e-3fef209e17a7.png "Kanji for Small Numeral Version")
+
+
+========================================================
+
+# 2048 from [gabrielecirulli/2048](Originated https://github.com/gabrielecirulli/2048)
 ### Summary (May-2014)
  
 A small clone of [1024](https://play.google.com/store/apps/details?id=com.veewo.a1024), based on [Saming's 2048](http://saming.fr/p/2048/) (also a clone).
